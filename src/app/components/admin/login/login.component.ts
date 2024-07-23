@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AdminAuthService } from '../../../services/admin-auth.service';
 
 // Google Oauth
-import { SocialAuthService, GoogleLoginProvider, SocialUser } from 'angularx-social-login';
+
 
 @Component({
   selector: 'app-login',
@@ -15,13 +15,13 @@ export class LoginAdminComponent implements OnInit {
   password: string = '';
   errorMessage: string = '';
   loginMessage: string = '';
-  user: SocialUser | undefined;
+  
   
 
   constructor(
     private AdminauthService: AdminAuthService,
      private router: Router,
-     private GoogleSerive: SocialAuthService,
+     
   ) { }
   
   // Este método es necesario para implementar OnInit en Angular
@@ -32,10 +32,7 @@ export class LoginAdminComponent implements OnInit {
   //Sï hay error eliminar este OnInit
 
   ngOnInit(): void {
-    this.GoogleSerive.authState.subscribe((user) => {
-      this.user = user;
-      console.log(this.user)
-    });
+    
   }
 
  
