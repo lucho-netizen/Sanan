@@ -6,7 +6,7 @@ import { UserService } from '../../../services/user.service';
 import { Title } from '@angular/platform-browser';
 
 // Google Oauth
-import { SocialAuthService, GoogleLoginProvider, SocialUser } from 'angularx-social-login';
+// import { SocialAuthService, GoogleLoginProvider, SocialUser } from 'angularx-social-login';
 
 declare const google: any;
 
@@ -67,36 +67,38 @@ export class LoginComponent implements OnInit {
    
   // }
 
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-    google.accounts.id.initialize({
-      client_id: '236412742841-kb5urirqrtgs16j06m7sifcrgqu8psbf.apps.googleusercontent.com',
-      callback: (response: any) => this.handleCredentialResponse(response)
-    });
-    google.accounts.id.renderButton(
-      document.getElementById('buttonDiv'),
-      { theme: 'outline', size: 'large' }  // customization attributes
-    );
-    google.accounts.id.prompt(); // also display the One Tap dialog
-  }
 
-  handleCredentialResponse(response: any) {
-    this.authService.loginWithGoogle(response.credential).subscribe(
-      (response: any) => {
-        if(response && response.token) {
-          this.authService.setToken(response.token);
-          this.router.navigate(['/dashboard']);
-        }
-        else {
-          this.errorMessage = 'Credenciales inválidas'; // Mensaje de error si las credenciales son incorrectas
+  // ngOnInit(): void {
+  //   google.accounts.id.initialize({
+  //     client_id: '236412742841-kb5urirqrtgs16j06m7sifcrgqu8psbf.apps.googleusercontent.com',
+  //     callback: (response: any) => this.handleCredentialResponse(response)
+  //   });
+  //   google.accounts.id.renderButton(
+  //     document.getElementById('buttonDiv'),
+  //     { theme: 'outline', size: 'large' }  // customization attributes
+  //   );
+  //   google.accounts.id.prompt(); // also display the One Tap dialog
+  // }
 
-        }
-      },
-      (error: any) => {
-        console.error('Login failed:', error);
-      }
-    );
-  }
+  // handleCredentialResponse(response: any) {
+  //   this.authService.loginWithGoogle(response.credential).subscribe(
+  //     (response: any) => {
+  //       if(response && response.token) {
+  //         this.authService.setToken(response.token);
+  //         this.router.navigate(['/dashboard']);
+  //       }
+  //       else {
+  //         this.errorMessage = 'Credenciales inválidas'; // Mensaje de error si las credenciales son incorrectas
+
+  //       }
+  //     },
+  //     (error: any) => {
+  //       console.error('Login failed:', error);
+  //     }
+  //   );
+  // }
 
 
   onSubmit(): void {

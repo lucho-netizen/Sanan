@@ -27,8 +27,10 @@ import { PatientService } from './services/patient/patient.service';
 
 
 //Google Oauth
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import { GoogleLoginProvider } from 'angularx-social-login';
+// import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+// import { GoogleLoginProvider } from 'angularx-social-login';
+
+
 import { ChatComponent } from './components/patients/chat/chat.component';
 import { AdminReportComponent } from './components/admin/dashboard/reports/reports.component';
 import { AdminTreatmentsComponent } from './components/admin/dashboard/treatments/treatments.component';
@@ -69,7 +71,7 @@ import { AdminTestsComponent } from './components/admin/dashboard/tests/tests.co
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    SocialLoginModule,
+    // SocialLoginModule,
     RouterModule.forRoot([
       { path: 'index', component: AppComponent },
       { path: 'login', component: LoginComponent },
@@ -86,20 +88,20 @@ import { AdminTestsComponent } from './components/admin/dashboard/tests/tests.co
   bootstrap: [AppComponent, AdminPatientsComponent],
 
   providers: [
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(
-              '236412742841-kb5urirqrtgs16j06m7sifcrgqu8psbf.apps.googleusercontent.com'
-            )
-          }
-        ]
-      } as SocialAuthServiceConfig,
-    },
+    // {
+    //   provide: 'SocialAuthServiceConfig',
+    //   useValue: {
+    //     autoLogin: false,
+    //     providers: [
+    //       {
+    //         id: GoogleLoginProvider.PROVIDER_ID,
+    //         provider: new GoogleLoginProvider(
+    //           '236412742841-kb5urirqrtgs16j06m7sifcrgqu8psbf.apps.googleusercontent.com'
+    //         )
+    //       }
+    //     ]
+    //   } as SocialAuthServiceConfig,
+    // },
     provideAnimationsAsync(),
     PatientService,
     ChatService
