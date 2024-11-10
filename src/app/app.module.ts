@@ -73,7 +73,7 @@ import { AdminTestsComponent } from './components/admin/dashboard/tests/tests.co
     FormsModule,
     // SocialLoginModule,
     RouterModule.forRoot([
-      { path: 'index', component: AppComponent },
+      { path: 'index', component: LoginComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
       { path: 'adduser', component: AdduserComponent },  // Asegúrate de tener estos componentes
       { path: 'loginadmin', component: LoginAdminComponent },  // Asegúrate de tener estos componentes
